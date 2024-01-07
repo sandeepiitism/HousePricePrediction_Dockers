@@ -1,48 +1,108 @@
+
+
+
 <!DOCTYPE html>
-<html >
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hind:300">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
+  <style>
+    body {
+      background: linear-gradient(to right, #3494E6, #EC6EAD);
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-  
+    .login {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 50%;
+      margin-bottom: 20px;
+    }
+
+    .login h1 {
+      font-family: 'Pacifico', cursive;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 48%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .result {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
- <div class="login">
-	<h1>Boston House Price Prediction</h1>
+  <div class="login">
+    <h1>Boston House Price Prediction</h1>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-      <input type="text" name="CRIM" placeholder="CRIM" required="required" /><br>
-    	<input type="text" name="ZN" placeholder="ZN" required="required" /><br>
-        <input type="text" name="INDUS" placeholder="INDUS" required="required" /><br>
-        <input type="text" name="CHAS" placeholder="CHAS" required="required" /><br>
-        <input type="text" name="NOX" placeholder="NOX" required="required" /><br>
-        <input type="text" name="RM" placeholder="RM" required="required" /><br>
-        <input type="text" name="Age" placeholder="Age" required="required" /><br>
-        <input type="text" name="DIS" placeholder="DIS" required="required" /><br>
-        <input type="text" name="RAD" placeholder="RAD" required="required" /><br>
-        <input type="text" name="TAX" placeholder="TAX" required="required" /><br>
-        <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
-        <input type="text" name="B" placeholder="B" required="required" /><br>
-        <input type="text" name="LSTAT" placeholder="LSTAT" required="required" /><br>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="CRIM" placeholder="CRIM" required="required" />
+      <input type="text" name="ZN" placeholder="ZN" required="required" />
+      <input type="text" name="INDUS" placeholder="INDUS" required="required" />
+      <input type="text" name="CHAS" placeholder="CHAS" required="required" />
+      <input type="text" name="NOX" placeholder="NOX" required="required" />
+      <input type="text" name="RM" placeholder="RM" required="required" />
+      <input type="text" name="Age" placeholder="Age" required="required" />
+      <input type="text" name="DIS" placeholder="DIS" required="required" />
+      <input type="text" name="RAD" placeholder="RAD" required="required" />
+      <input type="text" name="TAX" placeholder="TAX" required="required" />
+      <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" />
+      <input type="text" name="B" placeholder="B" required="required" />
+      <input type="text" name="LSTAT" placeholder="LSTAT" required="required" />
 
-       
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      <button type="submit">Predict</button>
     </form>
 
-   <br>
-   <br>
-  
-   
- </div>
- {{prediction_text}}
-
+  </div>
+  <div class="result">
+    {{prediction_text}}
+  </div>
 </body>
+
 </html>
